@@ -38,7 +38,9 @@ This repo is meant to be deployed to a production server so that your app can tr
    A successful response should look like :
    
    ```json
-   {"ok":true}
+   {
+   "ok":true
+   }
    ```
 
 
@@ -54,15 +56,15 @@ This repo is meant to be deployed to a production server so that your app can tr
         "isValid" : true, 
         "isBound" : true, 
         "application" : { 
-            "application" : "<game paramater hyphenated by environment>",/*Eg. scroll-prod*/ 
+            "application" : "<game paramater hyphenated by environment>", // Eg. scroll-prod 
             "account" : "<Player Tag>", // Eg. #8PRLVC0J
             "username" : "<Player Name>", // Eg. OJ 
-            "progress" : [ "<XP Level>", "<XP Points>" ] //Eg. [5,820] 
+            "progress" : [ "<XP Level>", "<XP Points>" ] // Eg. [5,820] 
             }, 
         "system" : { 
             "system" : "<Game parameter>", //Eg. scroll 
             "account" : "<Player Tag>", // Eg. #8PRLVC0J
-            "username" : "<Player Name>", // Eg. OJ
+            "username" : "<Player Name>", // Eg. OJ 
             "progress" : [ "<XP Level>", "<XP Points>" ] // Eg. [5,820] 
             } }}
     ```
@@ -77,11 +79,12 @@ This repo is meant to be deployed to a production server so that your app can tr
            "scid" : "<An ES256 OpenID JWT>", // The body contains game (Game codename eg. scroll), pid (Contains high and low components of tag in XXX-YYY format), env (Environment eg. prod), iat (timestamp) & scid claims.
            "scidToken" : "<An ES256 JWT for authentication>", // Practically both the tokens carry same claims but are signed using different keys.
            "email" : "<Email to which the code was sent>" 
-           }```
+           }
+     ```
 
 
 6. In any of the cases above, an unsuccessful response will look like :
-    ```json
+    ```javascript
     {
     "ok":false,
     "error":"<An error message>" //Eg. bad_request,binding_not_found etc
