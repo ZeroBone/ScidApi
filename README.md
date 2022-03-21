@@ -38,7 +38,9 @@ This repo is meant to be deployed to a production server so that your app can tr
    A successful response should look like :
    
    ```json
-   {"ok":true}
+   {
+   "ok":true
+   }
    ```
 
 
@@ -47,23 +49,23 @@ This repo is meant to be deployed to a production server so that your app can tr
    ### Response
 
     A successful response should look like :
-    ```json
+    ```javascript
     {"ok" : true, 
     "data" : { 
         "email" : "<Email to which code was sent>", 
         "isValid" : true, 
         "isBound" : true, 
         "application" : { 
-            "application" : "<game paramater hyphenated by environment>",/*Eg. scroll-prod*/ 
+            "application" : "<game paramater hyphenated by environment>", // Eg. scroll-prod 
             "account" : "<Player Tag>", // Eg. #8PRLVC0J
             "username" : "<Player Name>", // Eg. OJ 
-            "progress" : [ "<XP Level>", "<XP Points>" ] //Eg. [5,820] 
+            "progress" : [ "<XP Level>", "<XP Points>" ] // Eg. [5,820] 
             }, 
         "system" : { 
             "system" : "<Game parameter>", //Eg. scroll 
             "account" : "<Player Tag>", // Eg. #8PRLVC0J
             "username" : "<Player Name>", // Eg. OJ 
-            "progress" : [ "<XP Level>", "<XP Points>" ] //Eg. [5,820] 
+            "progress" : [ "<XP Level>", "<XP Points>" ] // Eg. [5,820] 
             } }}
     ```
 5. Perform a `POST` request to `https://ingame.id.supercell.com/api/account/login.confirm` with exactly the same `email` and `pin` parameters as in the last request (serialized the same way).
@@ -71,7 +73,7 @@ This repo is meant to be deployed to a production server so that your app can tr
    ### Response
 
      A successful response should look like :
-     ```json
+     ```javascript
      { "ok" : true, 
        "data" : { 
            "scid" : "<An ES256 OpenID JWT>", // The body contains game (Game codename eg. scroll), pid (Contains high and low components of tag in XXX-YYY format), env (Environment eg. prod), iat (timestamp) & scid claims.
@@ -82,7 +84,7 @@ This repo is meant to be deployed to a production server so that your app can tr
 
 
 6. In any of the cases above, an unsuccessful response will look like :
-    ```json
+    ```javascript
     {
     "ok":false,
     "error":"<An error message>" //Eg. bad_request,binding_not_found etc
