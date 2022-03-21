@@ -47,10 +47,9 @@ This repo is meant to be deployed to a production server so that your app can tr
    ### Response
 
     A successful response should look like :
-
-    ```json
+    ```javascript
     {"ok" : true, 
-     "data" : {
+    "data" : { 
         "email" : "<Email to which code was sent>", 
         "isValid" : true, 
         "isBound" : true, 
@@ -63,15 +62,16 @@ This repo is meant to be deployed to a production server so that your app can tr
         "system" : { 
             "system" : "<Game parameter>", //Eg. scroll 
             "account" : "<Player Tag>", // Eg. #8PRLVC0J
-            "username" : "<Player Name>", // Eg. OJ 
-            "progress" : [ "<XP Level>", "<XP Points>" ] //Eg. [5,820] 
-            } }}```
+            "username" : "<Player Name>", // Eg. OJ
+            "progress" : [ "<XP Level>", "<XP Points>" ] // Eg. [5,820] 
+            } }}
+    ```
 5. Perform a `POST` request to `https://ingame.id.supercell.com/api/account/login.confirm` with exactly the same `email` and `pin` parameters as in the last request (serialized the same way).
 
    ### Response
 
      A successful response should look like :
-     ```json
+     ```javascript
      { "ok" : true, 
        "data" : { 
            "scid" : "<An ES256 OpenID JWT>", // The body contains game (Game codename eg. scroll), pid (Contains high and low components of tag in XXX-YYY format), env (Environment eg. prod), iat (timestamp) & scid claims.
