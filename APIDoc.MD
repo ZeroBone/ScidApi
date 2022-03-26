@@ -15,6 +15,7 @@ A small note on authentication here, Supercell ID requires you to authenticate u
 
     ### Request
     **Headers** : None other than the default ones.
+
     **Body**    : URL Encoded body (`application/x-www-form-urlencoded`) with the following parameters. Example: `email=me@example.com&env=prod&game=soil&lang=en`
 
     | Parameter | Possible Value |
@@ -37,7 +38,9 @@ A small note on authentication here, Supercell ID requires you to authenticate u
       ### Successful Response
     **Body** : 
     ```json
-    {"ok":true}
+    {
+      "ok":true
+     }
     ```
 2. `POST /account/login.validate`  
     
@@ -66,7 +69,7 @@ A small note on authentication here, Supercell ID requires you to authenticate u
             "username" : "<Player Name>", // Eg. OJ 
             "progress" : [ "<XP Level>", "<XP Points>" ] // Eg. [5,820] 
             } }}
-            ```
+     ```
 3. `POST /account/login.confirm`
 
     ### Request
@@ -84,7 +87,7 @@ A small note on authentication here, Supercell ID requires you to authenticate u
            "bindToken" : "<A token which is used to login on the game client> (Requires Authentication)", // Not much information is available on the type and kind of this token because it requires authentication. The scid JWT does not have required privileges to get this token.
            "email" : "<Email to which the code was sent>" 
            }
-           ```
+      ```
 4. `POST /account/links.get`
 
     ### Request
@@ -108,7 +111,7 @@ A small note on authentication here, Supercell ID requires you to authenticate u
         }
     ```
 
-    **Note** : The above endpoint requires auth. Since, `scid` token is not a fully privileged token, some fields in the response body *may* be missing.
+    **Note** : The above endpoint requires authentication. Since, `scid` token is not a fully privileged token, some fields in the response body *may* be missing.
 
 5. `POST /account/settings.get`
 
@@ -196,7 +199,7 @@ If there is some other error you will get a response body like the below one.
 
 In addition to the above all endpoints, there are 2 more endpoints as listed below.
 
-    * `POST /account/create`
-    * `POST /account/create.confirm`
+ * `POST /account/create`
+ * `POST /account/create.confirm`
 
 The endpoints above are used to create new Supercell IDs. These have not been documented as they require authentication and the `scid` JWT does not carry enough privileges to authenticate with the above endpoints. Most probably the JWT received from the game client is the one which can be used to successfully authenticate with them. Also, the `/account/create` endpoint is protected by Google's Recaptcha (that does not matter much anyways because it is easy to get the captcha API token, the main difficulty is obtaining a JWT 😅).
