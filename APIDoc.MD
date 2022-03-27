@@ -86,7 +86,7 @@ A small note on authentication here, Supercell ID requires you to authenticate u
            "scidToken" : "<An ES256 OpenID JWT>", // Practically both the tokens carry same claims but are signed using different keys.
            "bindToken" : "<A token which is used to login on the game client> (Requires Authentication)", // Not much information is available on the type and kind of this token because it requires authentication. The scid JWT does not have required privileges to get this token.
            "email" : "<Email to which the code was sent>" 
-           }
+           }}
       ```
 4. `POST /account/links.get`
 
@@ -108,7 +108,7 @@ A small note on authentication here, Supercell ID requires you to authenticate u
                   "system" : "Unknown/<Game Name> (If Unknown, the player has not linked his account with the particular game, if a game name appears, the player has linked his account with the particular game.)" // Eg. Clash Royale
               } 
                    ] 
-        }
+        } }
     ```
 
     **Note** : The above endpoint requires authentication. Since, `scid` token is not a fully privileged token, some fields in the response body *may* be missing.
