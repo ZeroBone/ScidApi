@@ -172,6 +172,7 @@ A small note on authentication here, Supercell ID requires you to authenticate u
     } 
     }
     ```
+    **Note** : The above endpoint requires authentication. Since, `scid` token is not a fully privileged token, some fields in the response body may be missing.
  6. `POST /account/settings.set`
 
     ### Request
@@ -182,6 +183,7 @@ A small note on authentication here, Supercell ID requires you to authenticate u
 
     ### Successful Response
     **Body** : Same as in `/account/settings.get`
+    **Note** : The above endpoint requires authentication. Since, `scid` token is not a fully privileged token, some fields in the response body may be missing.
 
 ## Unsuccessful Response
 
