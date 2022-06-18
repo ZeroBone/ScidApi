@@ -5,7 +5,7 @@ This document contains all the endpoints available with Supercell ID API.
 
 ## Root Endpoint
 
-All the endpoints below are on the root url `https://ingame.id.supercell.com/api`.
+All the endpoints below are on the root url `https://id.supercell.com/api/ingame`.
 
 ## Authentication
 A small note on authentication here, Supercell ID requires you to authenticate using a JWT for every endpoint below and that JWT is passed on by the game client (using `supercellid://` URL Scheme). As we do not have the private key to generate the JWTs, only those endpoints are well documented which work without authentication/work on the principle of least privileged authentication.
